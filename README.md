@@ -3,7 +3,8 @@
 ## Project Details
 
 Project: hotels
-Description: hotel app which provide multi services like food , spa , laundry etc
+Description: 
+hotel app which provide multi services like food , spa , laundry etc
 
 
 ## Develop
