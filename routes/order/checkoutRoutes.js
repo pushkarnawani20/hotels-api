@@ -1,6 +1,6 @@
-import express from "express";
-import { authMiddleWare } from "../../utils/middleware/auth";
-import orderController from "../../controllers/order/orderController";
+const express = require("express");
+const { authMiddleWare } = require("../../utils/middleware/auth");
+const orderController = require("../../controllers/order/orderController");
 
 const router = express.Router();
 
@@ -11,4 +11,4 @@ const router = express.Router();
  */
 router.route("/checkout").post(authMiddleWare, orderController.checkout);
 
-export default router;
+module.exports = router;

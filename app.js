@@ -1,12 +1,12 @@
 "use strict";
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-import { config, initMongo } from "./config";
-import userRouter from "./routes/auth/authRoutes";
-import mealRouter from "./routes/hotels/mealsRoutes";
-import restaurantRouter from "./routes/hotels/restaurantsRoutes";
-import hotelRouter from "./routes/hotels/hotelsRoutes";
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const { config, initMongo } = require("./config");
+const userRouter = require("./routes/auth/authRoutes");
+const mealRouter = require("./routes/hotels/mealsRoutes");
+const restaurantRouter = require("./routes/hotels/restaurantsRoutes");
+const hotelRouter = require("./routes/hotels/hotelsRoutes");
 
 // express app instance
 const app = express();

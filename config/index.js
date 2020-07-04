@@ -1,5 +1,5 @@
 // edit need author permission
-import { config } from "./env";
-import { initMongo } from "./db";
+const { config } = require("./env");
+const { initMongo } = require("./db");
 
-export { config, initMongo };
+module.exports = { config, initMongo };

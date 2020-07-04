@@ -1,4 +1,4 @@
-import Orders from "../../model/orderModel";
+const Orders = require("../../model/orderModel");
 
 /**
  * @method - post
@@ -8,4 +8,4 @@ import Orders from "../../model/orderModel";
 
 const checkout = async (req, res) => {};
 
-export default { checkout };
+module.exports = { checkout };

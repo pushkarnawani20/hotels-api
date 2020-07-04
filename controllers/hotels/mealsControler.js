@@ -1,4 +1,4 @@
-import Meal from "../../model/hotels/meals";
+const Meal = require("../../model/hotels/meals");
 
 /**
  * @method - post
@@ -47,4 +47,4 @@ const listMeal = async (req, res) => {
   }
 };
 
-export { createMeal, listMeal };
+module.exports = { createMeal, listMeal };

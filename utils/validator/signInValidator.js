@@ -1,4 +1,4 @@
-import { check, validationResult } from "express-validator";
+const { check, validationResult } = require("express-validator");
 
 const validateSignInUser = [
   check("email")
@@ -29,4 +29,4 @@ const validateSignInUser = [
   },
 ];
 
-export default validateSignInUser;
+module.exports = validateSignInUser;

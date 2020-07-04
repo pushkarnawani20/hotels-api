@@ -1,5 +1,5 @@
-import Meal from "../../model/hotels/meals";
-import Restaurant from "../../model/hotels/restaurants";
+const Meal = require("../../model/hotels/meals");
+const Restaurant = require("../../model/hotels/restaurants");
 
 /**
  * @method - post
@@ -89,10 +89,7 @@ const addMealsInResturent = async (req, res) => {
 
 const listResturents = async (req, res) => {
   try {
-    let restaurant = await Restaurant.find()
-      .populate("meals")
-      .lean()
-      .exec();
+    let restaurant = await Restaurant.find().populate("meals").lean().exec();
     res.status(200).json({
       data: restaurant,
     });
@@ -104,4 +101,4 @@ const listResturents = async (req, res) => {
   }
 };
 
-export { createResturent, addMealsInResturent, listResturents };
+module.exports = { createResturent, addMealsInResturent, listResturents };

@@ -1,9 +1,9 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   createResturent,
   addMealsInResturent,
   listResturents,
-} from "../../controllers/hotels/restaurantsControler";
+} = require("../../controllers/hotels/restaurantsControler");
 
 const router = express.Router();
 
@@ -30,4 +30,4 @@ router.route("/hotels/restaurant").post(createResturent);
  */
 router.route("/hotels/restaurant/addmeals").post(addMealsInResturent);
 
-export default router;
+module.exports = router;

@@ -1,11 +1,11 @@
-import express from "express";
+const express = require("express");
 // import { authMiddleWare } from "../../utils/middleware/auth";
-import {
+const {
   listHotels,
   createHotel,
   addRestaurantInHotel,
   searchHotels,
-} from "../../controllers/hotels/hotelsControler";
+} = require("../../controllers/hotels/hotelsControler");
 
 const router = express.Router();
 
@@ -37,4 +37,4 @@ router.route("/hotels/addrestaurant").post(addRestaurantInHotel);
  */
 router.route("/hotels/search").get(searchHotels);
 
-export default router;
+module.exports = router;

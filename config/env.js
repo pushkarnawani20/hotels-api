@@ -5,9 +5,9 @@ const config = {
   appName: "INOVATION",
   mongoUser: "Authmember",
   mongoPassword: "qHKqTKYRdYnpxUyX",
-  port: process.env.port || 5000,
+  port: process.env.PORT || 5000,
 };
 
-const mongoDb = `mongodb+srv://${config.mongoUser}:${config.mongoPassword}@cluster0-34ime.mongodb.net/${config.appName}?retryWrites=true&w=majority`;
+const mongoDbUri = `mongodb+srv://${config.mongoUser}:${config.mongoPassword}@cluster0-34ime.mongodb.net/${config.appName}?retryWrites=true&w=majority`;
 
-export { config, mongoDb };
+module.exports = { config, mongoDbUri };

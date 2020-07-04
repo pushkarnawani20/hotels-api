@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+const mongoose = require( "mongoose");
 const HotelSchema = new mongoose.Schema({
   hotelName: {
     type: String,
@@ -15,9 +15,9 @@ const HotelSchema = new mongoose.Schema({
   openingHours: {
     type: String,
   },
-  restaurants: [{ type: Schema.ObjectId, ref: "Restaurant" }],
+  restaurants: [{ type: mongoose.Schema.ObjectId, ref: "Restaurant" }],
 });
 
 const Hotel = mongoose.model("Hotel", HotelSchema);
 
-export default Hotel;
+module.exports = Hotel;

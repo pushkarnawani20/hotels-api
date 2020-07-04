@@ -1,6 +1,6 @@
 // do not modify this file
-import mongoose from "mongoose";
-import { mongoDb as mongoDbUri } from "./env";
+const mongoose = require("mongoose");
+const { mongoDbUri } = require("./env");
 
 const initMongo = async () => {
   try {
@@ -20,4 +20,4 @@ const initMongo = async () => {
     throw e;
   }
 };
-export { initMongo };
+module.exports = { initMongo };

@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import { config } from "../../config";
+const jwt = require("jsonwebtoken");
+const { config } = require("../../config");
 
 const authMiddleWare = (req, res, next) => {
   const token = req.header("token");
@@ -14,4 +14,4 @@ const authMiddleWare = (req, res, next) => {
     res.status(500).send({ message: "Invalid Token" });
   }
 };
-export { authMiddleWare };
+module.exports = { authMiddleWare };

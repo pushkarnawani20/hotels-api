@@ -1,8 +1,8 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import { config } from "../../config";
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { config } = require("../../config");
 
-import User from "../../model/users/usersModel";
+const User = require("../../model/users/usersModel");
 
 /**
  * @method - POST
@@ -89,4 +89,4 @@ const signIn = async (req, res) => {
   }
 };
 
-export default { signIn, signUp };
+module.exports = { signIn, signUp };

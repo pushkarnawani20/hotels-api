@@ -1,5 +1,8 @@
-import express from "express";
-import { createMeal, listMeal } from "../../controllers/hotels/mealsControler";
+const express = require("express");
+const {
+  createMeal,
+  listMeal,
+} = require("../../controllers/hotels/mealsControler");
 
 const router = express.Router();
 
@@ -19,4 +22,4 @@ router.route("/hotels/meals").get(listMeal);
 
 router.route("/hotels/meals").post(createMeal);
 
-export default router;
+module.exports = router;

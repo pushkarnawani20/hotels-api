@@ -1,6 +1,6 @@
-import express from "express";
-import authController from "../../controllers/auth/authController";
-import { signInValidator, signUpValidator } from "../../utils/validator";
+const express = require("express");
+const authController = require("../../controllers/auth/authController");
+const { signInValidator, signUpValidator } = require("../../utils/validator");
 
 const router = express.Router();
 
@@ -22,4 +22,4 @@ router.route("/users/signin").post(signInValidator, authController.signIn);
 
 // router.route("/api/users?userId").get(userCtrl.userByID);
 
-export default router;
+module.exports = router;

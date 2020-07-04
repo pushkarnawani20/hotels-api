@@ -1,6 +1,6 @@
-import Hotel from "../../model/hotels/hotels";
-import Restaurant from "../../model/hotels/restaurants";
-import { hotelSearchTransformer } from "../../utils/transformer/hotels";
+const Hotel = require("../../model/hotels/hotels");
+const Restaurant = require("../../model/hotels/restaurants");
+const { hotelSearchTransformer } = require("../../utils/transformer/hotels");
 
 /**
  * @method - post
@@ -149,4 +149,9 @@ const searchHotels = async (req, res) => {
   }
 };
 
-export { createHotel, addRestaurantInHotel, listHotels, searchHotels };
+module.exports = {
+  createHotel,
+  addRestaurantInHotel,
+  listHotels,
+  searchHotels,
+};

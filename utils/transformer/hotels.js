@@ -12,4 +12,4 @@ const hotelSearchTransformer = (data) => {
   return serachHotels;
 };
 
-export { hotelSearchTransformer };
+module.exports = { hotelSearchTransformer };

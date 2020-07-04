@@ -1,4 +1,4 @@
-import signInValidator from "./signInValidator";
-import signUpValidator from "./signUpValidator";
+const signInValidator = require("./signInValidator");
+const signUpValidator = require("./signUpValidator");
 
-export { signInValidator, signUpValidator };
+module.exports = { signInValidator, signUpValidator };

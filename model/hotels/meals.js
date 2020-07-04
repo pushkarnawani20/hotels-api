@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // meals model
 const MealSchema = new mongoose.Schema({
@@ -23,8 +23,8 @@ const MealSchema = new mongoose.Schema({
   foodType: {
     type: String,
   },
-  foodCategory:{
-    type:String
+  foodCategory: {
+    type: String,
   },
   image: {
     type: String,
@@ -33,4 +33,4 @@ const MealSchema = new mongoose.Schema({
 
 const Meal = mongoose.model("Meal", MealSchema);
 
-export default Meal;
+module.exports = Meal;
