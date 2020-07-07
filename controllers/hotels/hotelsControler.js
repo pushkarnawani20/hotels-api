@@ -1,5 +1,6 @@
 const Hotel = require("../../model/hotels/hotels");
 const Restaurant = require("../../model/hotels/restaurants");
+const Spa = require("../../model/hotels/spa");
 const { hotelSearchTransformer } = require("../../utils/transformer/hotels");
 
 /**
@@ -9,7 +10,7 @@ const { hotelSearchTransformer } = require("../../utils/transformer/hotels");
 
 const createHotel = async (req, res) => {
   const requestParam = req.body;
-  const hotel = new Hotel({ ...requestParam, restaurants: [] });
+  const hotel = new Hotel({ ...requestParam, restaurants: [], spa: [] });
   try {
     let hasHotel = await Hotel.findOne({
       propCode: requestParam.propCode,
@@ -149,9 +150,55 @@ const searchHotels = async (req, res) => {
   }
 };
 
+const addSpaInHotel = async (req, res) => {
+  const requestParam = req.body;
+  try {
+    let hotel = await Hotel.findOne({
+      propCode: requestParam.propCode,
+    });
+    if (hotel) {
+      let spa = await Spa.findOne({
+        _id: requestParam.spaId,
+      });
+
+      if (!spa) {
+        return res.status(400).json({
+          data: null,
+          message: "restaurantId not exists!",
+        });
+      }
+      let match = hotel.spa.find((e) => e.equals(requestParam.spaId));
+      if (!match) {
+        hotel.spa.push(requestParam.spaId);
+        await hotel.save();
+        res.status(200).json({
+          data: hotel,
+          message: "restaurant added sucessfully !",
+        });
+      } else {
+        res.status(400).json({
+          data: null,
+          message: "restaurant already exist in this hotel !",
+        });
+      }
+    } else {
+      res.status(200).json({
+        data: [],
+        message: "Hotel not exist !",
+      });
+    }
+  } catch (err) {
+    return res.status(500).json({
+      data: null,
+      message: "Internal server error !" + err,
+    });
+  }
+};
+
 module.exports = {
   createHotel,
   addRestaurantInHotel,
   listHotels,
   searchHotels,
+  addSpaInHotel,
 };

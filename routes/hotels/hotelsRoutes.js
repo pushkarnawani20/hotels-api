@@ -5,6 +5,7 @@ const {
   createHotel,
   addRestaurantInHotel,
   searchHotels,
+  addSpaInHotel,
 } = require("../../controllers/hotels/hotelsControler");
 
 const router = express.Router();
@@ -29,6 +30,8 @@ router.route("/hotels").post(createHotel);
  * @description - add Restaurant in hotels data
  */
 router.route("/hotels/addrestaurant").post(addRestaurantInHotel);
+
+router.route("/hotels/addspa").post(addSpaInHotel);
 
 /**
  * @method - get

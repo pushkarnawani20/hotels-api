@@ -7,6 +7,7 @@ const userRouter = require("./routes/auth/authRoutes");
 const mealRouter = require("./routes/hotels/mealsRoutes");
 const restaurantRouter = require("./routes/hotels/restaurantsRoutes");
 const hotelRouter = require("./routes/hotels/hotelsRoutes");
+const spaRouter = require("./routes/hotels/spaRoutes");
 
 // express app instance
 const app = express();
@@ -18,6 +19,7 @@ app.use("/api/v1", userRouter);
 app.use("/api/v1", mealRouter);
 app.use("/api/v1", restaurantRouter);
 app.use("/api/v1", hotelRouter);
+app.use("/api/v1", spaRouter);
 // app.use("/api/v1/order/", router.orderRouter);
 
 app.get("/", (req, res) => {
