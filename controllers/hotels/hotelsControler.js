@@ -3,11 +3,6 @@ const Restaurant = require("../../model/hotels/restaurants");
 const Spa = require("../../model/hotels/spa");
 const { hotelSearchTransformer } = require("../../utils/transformer/hotels");
 
-/**
- * @method - post
- * @description - / create hotel
- */
-
 const createHotel = async (req, res) => {
   const requestParam = req.body;
   const hotel = new Hotel({ ...requestParam, restaurants: [], spa: [] });
@@ -34,11 +29,6 @@ const createHotel = async (req, res) => {
     });
   }
 };
-
-/**
- * @method - post
- * @description - add Restaurant in hotel
- */
 
 const addRestaurantInHotel = async (req, res) => {
   const requestParam = req.body;
@@ -87,10 +77,7 @@ const addRestaurantInHotel = async (req, res) => {
   }
 };
 
-/**
- * @method - get
- * @description - list all hotels
- */
+
 
 const listHotels = async (req, res) => {
   try {
@@ -123,10 +110,6 @@ const listHotels = async (req, res) => {
   }
 };
 
-/**
- * @method - get
- * @description - search hotels
- */
 
 const searchHotels = async (req, res) => {
   try {

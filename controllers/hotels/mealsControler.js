@@ -1,10 +1,5 @@
 const Meal = require("../../model/hotels/meals");
 
-/**
- * @method - post
- * @description - create meal
- */
-
 const createMeal = async (req, res) => {
   const inputMeal = req.body;
   try {
@@ -20,11 +15,6 @@ const createMeal = async (req, res) => {
     });
   }
 };
-
-/**
- * @method - get
- * @description - list of  meals
- */
 
 const listMeal = async (req, res) => {
   try {

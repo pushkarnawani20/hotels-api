@@ -4,10 +4,6 @@ const { config } = require("../../config");
 
 const User = require("../../model/users/usersModel");
 
-/**
- * @method - POST
- * @description - User SignUp
- */
 const signUp = async (req, res) => {
   let userInput = req.body;
 
@@ -46,10 +42,6 @@ const signUp = async (req, res) => {
   }
 };
 
-/**
- * @method - POST
- * @description - User Signin
- */
 
 const signIn = async (req, res) => {
   const { email, password } = req.body;

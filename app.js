@@ -15,12 +15,14 @@ const app = express();
 // Middleware
 app.use(bodyParser.json(), cors());
 
-app.use("/api/v1", userRouter);
-app.use("/api/v1", mealRouter);
-app.use("/api/v1", restaurantRouter);
-app.use("/api/v1", hotelRouter);
-app.use("/api/v1", spaRouter);
-// app.use("/api/v1/order/", router.orderRouter);
+app.use(
+  "/api/v1",
+  userRouter,
+  mealRouter,
+  restaurantRouter,
+  hotelRouter,
+  spaRouter
+);
 
 app.get("/", (req, res) => {
   res.send("hello from me");

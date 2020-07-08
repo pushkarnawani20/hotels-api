@@ -1,21 +1,13 @@
 const Spa = require("../../model/hotels/spa");
 
-/**
- * @method - post
- * @description - create Restaurant
- */
-
 const createSpa = async (req, res) => {
   const input = req.body;
-  // prepare new Restaurant model
-  const spa = new Spa({ ...input, meals: [] });
+  const spa = new Spa({ ...input });
 
   try {
-    // check for Spa exists or note if exist then check for Spa
     let hasSpa = await Spa.findOne({
       name: input.name,
     });
-    // if Spa exists
     if (!hasSpa) {
       await spa.save();
       res.status(200).json({
