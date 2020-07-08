@@ -77,11 +77,11 @@ const addRestaurantInHotel = async (req, res) => {
   }
 };
 
-
-
-const listHotels = async (req, res) => {
+const getHotelsById = async (req, res) => {
   try {
-    let hotels = await Hotel.find()
+    let hotels = await Hotel.findOne({
+      propCode: req.params.propCode,
+    })
       .populate({
         path: "restaurants",
         model: "Restaurant",
@@ -89,6 +89,10 @@ const listHotels = async (req, res) => {
           path: "meals",
           model: "Meal",
         },
+      })
+      .populate({
+        path: "spa",
+        model: "Spa",
       })
       .lean()
       .exec();
@@ -109,7 +113,6 @@ const listHotels = async (req, res) => {
     });
   }
 };
-
 
 const searchHotels = async (req, res) => {
   try {
@@ -181,7 +184,7 @@ const addSpaInHotel = async (req, res) => {
 module.exports = {
   createHotel,
   addRestaurantInHotel,
-  listHotels,
+  getHotelsById,
   searchHotels,
   addSpaInHotel,
 };

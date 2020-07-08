@@ -1,7 +1,7 @@
 const express = require("express");
 // import { authMiddleWare } from "../../utils/middleware/auth";
 const {
-  listHotels,
+  getHotelsById,
   createHotel,
   addRestaurantInHotel,
   searchHotels,
@@ -15,8 +15,8 @@ const router = express.Router();
  * @endpoint - /api/hotels/
  * @description - fetch all hotels
  */
-router.route("/hotels").get(listHotels);
-
+// router.route("/hotels").get(listHotels)
+router.route("/hotels/:propCode").get(getHotelsById);
 /**
  * @method - post
  * @endpoint - /api/hotels
