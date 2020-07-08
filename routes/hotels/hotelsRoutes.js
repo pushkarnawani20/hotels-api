@@ -16,7 +16,7 @@ const router = express.Router();
  * @description - fetch all hotels
  */
 // router.route("/hotels").get(listHotels)
-router.route("/hotels/:propCode").get(getHotelsById);
+router.route("/hotels/by/:propCode").get(getHotelsById);
 /**
  * @method - post
  * @endpoint - /api/hotels
