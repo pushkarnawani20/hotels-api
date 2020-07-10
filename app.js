@@ -3,11 +3,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { config, initMongo } = require("./config");
-const userRouter = require("./routes/auth/authRoutes");
-const mealRouter = require("./routes/hotels/mealsRoutes");
-const restaurantRouter = require("./routes/hotels/restaurantsRoutes");
-const hotelRouter = require("./routes/hotels/hotelsRoutes");
-const spaRouter = require("./routes/hotels/spaRoutes");
+const userRouter = require("./routes/auth.routes");
+const mealRouter = require("./routes/meals.routes");
+const restaurantRouter = require("./routes/restaurants.routes");
+const hotelRouter = require("./routes/hotels.routes");
+const spaRouter = require("./routes/spa.routes");
 
 // express app instance
 const app = express();

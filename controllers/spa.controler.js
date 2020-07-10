@@ -1,4 +1,4 @@
-const Spa = require("../../model/hotels/spa");
+const Spa = require("../model/spa.model");
 
 const createSpa = async (req, res) => {
   const input = req.body;

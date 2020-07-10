@@ -1,7 +1,7 @@
-const Hotel = require("../../model/hotels/hotels");
-const Restaurant = require("../../model/hotels/restaurants");
-const Spa = require("../../model/hotels/spa");
-const { hotelSearchTransformer } = require("../../utils/transformer/hotels");
+const Hotel = require("../model/hotels.model");
+const Restaurant = require("../model/restaurants.model");
+const Spa = require("../model/spa.model");
+const { hotelSearchTransformer } = require("../utils/transformer/hotels");
 
 const createHotel = async (req, res) => {
   const requestParam = req.body;

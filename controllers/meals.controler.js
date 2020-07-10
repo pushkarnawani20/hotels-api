@@ -1,4 +1,4 @@
-const Meal = require("../../model/hotels/meals");
+const Meal = require("../model/meals.model");
 
 const createMeal = async (req, res) => {
   const inputMeal = req.body;

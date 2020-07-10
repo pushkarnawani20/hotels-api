@@ -1,12 +1,7 @@
 const express = require("express");
 // import { authMiddleWare } from "../../utils/middleware/auth";
-const {
-  getHotelsById,
-  createHotel,
-  addRestaurantInHotel,
-  searchHotels,
-  addSpaInHotel,
-} = require("../../controllers/hotels/hotelsControler");
+
+const { hotelsController } = require("../controllers");
 
 const router = express.Router();
 
@@ -16,28 +11,28 @@ const router = express.Router();
  * @description - fetch all hotels
  */
 // router.route("/hotels").get(listHotels)
-router.route("/hotels/by/:propCode").get(getHotelsById);
+router.route("/hotels/by/:propCode").get(hotelsController.getHotelsById);
 /**
  * @method - post
  * @endpoint - /api/hotels
  * @description - add hotels data
  */
-router.route("/hotels").post(createHotel);
+router.route("/hotels").post(hotelsController.createHotel);
 
 /**
  * @method - post
  * @endpoint - /api/hotels/addrestaurant
  * @description - add Restaurant in hotels data
  */
-router.route("/hotels/addrestaurant").post(addRestaurantInHotel);
+router.route("/hotels/addrestaurant").post(hotelsController.addRestaurantInHotel);
 
-router.route("/hotels/addspa").post(addSpaInHotel);
+router.route("/hotels/addspa").post(hotelsController.addSpaInHotel);
 
 /**
  * @method - get
  * @endpoint - /api/hotels/search
  * @description - search hotels
  */
-router.route("/hotels/search").get(searchHotels);
+router.route("/hotels/search").get(hotelsController.searchHotels);
 
 module.exports = router;

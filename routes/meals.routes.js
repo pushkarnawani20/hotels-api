@@ -1,8 +1,5 @@
 const express = require("express");
-const {
-  createMeal,
-  listMeal,
-} = require("../../controllers/hotels/mealsControler");
+const { mealsController } = require("../controllers");
 
 const router = express.Router();
 
@@ -12,7 +9,7 @@ const router = express.Router();
  * @description - fetch meals
  */
 
-router.route("/hotels/meals").get(listMeal);
+router.route("/hotels/meals").get(mealsController.listMeal);
 
 /**
  * @method - post
@@ -20,6 +17,6 @@ router.route("/hotels/meals").get(listMeal);
  * @description - post meals
  */
 
-router.route("/hotels/meals").post(createMeal);
+router.route("/hotels/meals").post(mealsController.createMeal);
 
 module.exports = router;
