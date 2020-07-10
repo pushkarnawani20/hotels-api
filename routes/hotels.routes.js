@@ -8,7 +8,7 @@ const router = express.Router();
 /**
  * @method - get
  * @endpoint - /api/hotels/
- * @description - fetch all hotels
+ * @description - fetch hotel by id
  */
 // router.route("/hotels").get(listHotels)
 router.route("/hotels/by/:propCode").get(hotelsController.getHotelsById);

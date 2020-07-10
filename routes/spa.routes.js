@@ -9,8 +9,8 @@ const router = express.Router();
  * @description - fetch spa
  */
 
-router.route("/hotels/spa").post(spaController.createSpa);
+router.route("/spa").post(spaController.createSpa);
 
-router.route("/hotels/spa").get(spaController.listSpa);
+router.route("/spa").get(spaController.listSpa);
 
 module.exports = router;

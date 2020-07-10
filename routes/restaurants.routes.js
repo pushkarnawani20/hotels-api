@@ -11,7 +11,7 @@ const router = express.Router();
  * @description - fetch restaurants
  */
 
-router.route("/hotels/restaurant").get(restaurantsController.listResturents);
+router.route("/restaurant").get(restaurantsController.listResturents);
 
 /**
  * @method - post
@@ -19,7 +19,7 @@ router.route("/hotels/restaurant").get(restaurantsController.listResturents);
  * @description - post restaurants
  */
 
-router.route("/hotels/restaurant").post(restaurantsController.createResturent);
+router.route("/restaurant").post(restaurantsController.createResturent);
 
 /**
  * @method - post
@@ -27,7 +27,7 @@ router.route("/hotels/restaurant").post(restaurantsController.createResturent);
  * @description - add meals in  restaurants
  */
 router
-  .route("/hotels/restaurant/addmeals")
+  .route("/restaurant/addmeals")
   .post(restaurantsController.addMealsInResturent);
 
 module.exports = router;
