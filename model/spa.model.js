@@ -27,9 +27,6 @@ const SpaSchema = new mongoose.Schema({
     type: String,
   },
   benefits: [],
-  isPackage: {
-    type: Boolean,
-  },
   includes: [],
   image: {
     type: String,
