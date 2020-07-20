@@ -24,9 +24,12 @@ router.route("/hotels").post(hotelsController.createHotel);
  * @endpoint - /api/hotels/addrestaurant
  * @description - add Restaurant in hotels data
  */
-router.route("/hotels/addrestaurant").post(hotelsController.addRestaurantInHotel);
+router
+  .route("/hotels/addrestaurant")
+  .post(hotelsController.addRestaurantInHotel);
 
 router.route("/hotels/addspa").post(hotelsController.addSpaInHotel);
+router.route("/hotels/addchef").post(hotelsController.addChefInHotel);
 
 /**
  * @method - get
