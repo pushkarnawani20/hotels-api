@@ -19,9 +19,6 @@ const ChefSchema = new mongoose.Schema({
   experience: {
     type: String,
   },
-  gender: {
-    type: String,
-  },
   image: {
     type: String,
   },

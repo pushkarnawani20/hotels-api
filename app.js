@@ -8,6 +8,7 @@ const mealRouter = require("./routes/meals.routes");
 const restaurantRouter = require("./routes/restaurants.routes");
 const hotelRouter = require("./routes/hotels.routes");
 const spaRouter = require("./routes/spa.routes");
+const chefRouter = require("./routes/chef.routes");
 
 // express app instance
 const app = express();
@@ -21,7 +22,8 @@ app.use(
   mealRouter,
   restaurantRouter,
   hotelRouter,
-  spaRouter
+  spaRouter,
+  chefRouter
 );
 
 app.get("/", (req, res) => {
