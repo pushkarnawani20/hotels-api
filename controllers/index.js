@@ -4,6 +4,7 @@ const mealsController = require("./meals.controler");
 const restaurantsController = require("./restaurants.controler");
 const spaController = require("./spa.controler");
 const chefController = require("./chef.controller");
+const laundryController = require("./laundry.controller");
 
 module.exports = {
   authController,
@@ -12,4 +13,5 @@ module.exports = {
   restaurantsController,
   spaController,
   chefController,
+  laundryController
 };

@@ -9,7 +9,7 @@ const restaurantRouter = require("./routes/restaurants.routes");
 const hotelRouter = require("./routes/hotels.routes");
 const spaRouter = require("./routes/spa.routes");
 const chefRouter = require("./routes/chef.routes");
-
+const laundryRouter = require("./routes/laundry.routes");
 // express app instance
 const app = express();
 
@@ -23,7 +23,8 @@ app.use(
   restaurantRouter,
   hotelRouter,
   spaRouter,
-  chefRouter
+  chefRouter,
+  laundryRouter
 );
 
 app.get("/", (req, res) => {
