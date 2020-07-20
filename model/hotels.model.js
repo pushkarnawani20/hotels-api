@@ -18,6 +18,7 @@ const HotelSchema = new mongoose.Schema({
   restaurants: [{ type: mongoose.Schema.ObjectId, ref: "Restaurant" }],
   spa: [{ type: mongoose.Schema.ObjectId, ref: "Spa" }],
   laundry: [],
+  chefs:[{ type: mongoose.Schema.ObjectId, ref: "Chef" }]
 });
 
 const Hotel = mongoose.model("Hotel", HotelSchema);
