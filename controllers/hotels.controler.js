@@ -2,6 +2,7 @@ const Hotel = require("../model/hotels.model");
 const Restaurant = require("../model/restaurants.model");
 const Spa = require("../model/spa.model");
 const Chef = require("../model/chef.model");
+const Laundry = require("../model/laundry.model");
 const { hotelSearchTransformer } = require("../utils/transformer/hotels");
 
 const createHotel = async (req, res) => {
@@ -11,6 +12,7 @@ const createHotel = async (req, res) => {
     restaurants: [],
     spa: [],
     chefs: [],
+    laundry: []
   });
   try {
     let hasHotel = await Hotel.findOne({
@@ -157,7 +159,7 @@ const addSpaInHotel = async (req, res) => {
       if (!spa) {
         return res.status(400).json({
           data: null,
-          message: "restaurantId not exists!",
+          message: "Spa Id does not exist!",
         });
       }
       let match = hotel.spa.find((e) => e.equals(requestParam.spaId));
@@ -166,12 +168,12 @@ const addSpaInHotel = async (req, res) => {
         await hotel.save();
         res.status(200).json({
           data: hotel,
-          message: "restaurant added sucessfully !",
+          message: "Spa item added sucessfully !",
         });
       } else {
         res.status(400).json({
           data: null,
-          message: "restaurant already exist in this hotel !",
+          message: "Spa item already exists in this hotel !",
         });
       }
     } else {
@@ -202,7 +204,7 @@ const addChefInHotel = async (req, res) => {
       if (!chef) {
         return res.status(400).json({
           data: null,
-          message: "chefId not exists!",
+          message: "chef id does not exists!",
         });
       }
       let match = hotel.chefs.find((e) => e.equals(requestParam.chefId));
@@ -233,6 +235,58 @@ const addChefInHotel = async (req, res) => {
   }
 };
 
+const addLaundryInHotel = async (req, res) => {
+  const input = req.body;
+  try{
+    let hotel = await Hotel.findOne({
+      id: input.propCode
+    });
+    
+    if(hotel){
+
+      const laundryItem = Laundry.findOne({
+        _id: input.laundryId
+      })
+
+      if(!laundryItem){
+        return res.status(400).json({
+          data: null,
+          message: "laundry id does not exist!",
+        });
+      }
+
+      let laundryExists = hotel.laundry.find(e => e.equals(input.laundryId));
+      if(!laundryExists){
+        hotel.laundry.push(input.laundryId);
+        await hotel.save();
+        res.status(200).json({
+          data: hotel,
+          message : "Laundry item added successfully in hotel"
+        })
+
+      } else {
+         res.status(400).json({
+          data: null,
+          message: "laundry id already exists in hotel!",
+        });
+      }
+
+    } else {
+      return res.status(200).json({
+        data: [],
+        message: "Hotel does not exist!",
+      });
+    }
+
+
+  } catch(err) {
+    return res.status(500).json({
+      data: null,
+      message: "Internal server error !" + err,
+    });
+  }
+}
+
 module.exports = {
   createHotel,
   addRestaurantInHotel,
@@ -240,4 +294,5 @@ module.exports = {
   searchHotels,
   addSpaInHotel,
   addChefInHotel,
+  addLaundryInHotel
 };
