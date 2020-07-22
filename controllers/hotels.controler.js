@@ -247,7 +247,7 @@ const addLaundryInHotel = async (req, res) => {
   const input = req.body;
   try{
     let hotel = await Hotel.findOne({
-      id: input.propCode
+      propCode: input.propCode
     });
     
     if(hotel){
