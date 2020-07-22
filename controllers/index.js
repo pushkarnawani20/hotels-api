@@ -13,5 +13,5 @@ module.exports = {
   restaurantsController,
   spaController,
   chefController,
-  laundryController
+  laundryController,
 };

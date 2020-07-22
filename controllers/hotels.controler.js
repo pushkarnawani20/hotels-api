@@ -106,6 +106,10 @@ const getHotelsById = async (req, res) => {
         path: "chefs",
         model: "Chef",
       })
+      .populate({
+        path: "laundry",
+        model: "Laundry",
+      })
       .lean()
       .exec();
     if (hotels) {
