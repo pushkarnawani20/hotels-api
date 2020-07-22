@@ -105,4 +105,12 @@ router.route("/hotels/addspa").post(hotelsController.addSpaInHotel);
 
 router.route("/hotels/addchef").post(hotelsController.addChefInHotel);
 
+/**
+ * @method - post
+ * @endpoint - /api/hotels/addLaundry
+ * @description - add chef in hotels data
+ */
+
+router.route("/hotels/addLaundry").post(hotelsController.addLaundryInHotel);
+
 module.exports = router;
