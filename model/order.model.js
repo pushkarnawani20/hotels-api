@@ -5,13 +5,31 @@ const OrderSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  propCode: {
+    type: String,
+  },
   serviceName: {
     type: String,
   },
-  amount: {
-    type: Number,
+  serviceType: {
+    type: String,
   },
-  items: [],
+  amount: {
+    type: String,
+  },
+  items: [
+    {
+      itemName: {
+        type: String,
+      },
+      itemQuantity: {
+        type: String,
+      },
+      itemPrice: {
+        type: String,
+      },
+    },
+  ],
   user: {
     userID: {
       type: String,
