@@ -1,4 +1,4 @@
-const mongoose, { Schema } = require( "mongoose");
+const mongoose = require("mongoose");
 
 const OrderSchema = new mongoose.Schema({
   date: {
@@ -11,16 +11,8 @@ const OrderSchema = new mongoose.Schema({
   amount: {
     type: Number,
   },
-  items: [
-    {
-      type: Schema.ObjectId,
-      ref: "Foods",
-    },
-  ],
-  user: {
-    type: Schema.ObjectId,
-    ref: "User",
-  },
+  items: [],
+  user: {},
 });
 
 const orderModel = mongoose.model("Orders", OrderSchema);

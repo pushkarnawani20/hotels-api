@@ -9,7 +9,10 @@ const HotelSchema = new mongoose.Schema({
   hotelLocation: {
     type: String,
   },
-  HotelDescription: {
+  hotelDescription: {
+    type: String,
+  },
+  hotelImage: {
     type: String,
   },
   openingHours: {
@@ -17,8 +20,8 @@ const HotelSchema = new mongoose.Schema({
   },
   restaurants: [{ type: mongoose.Schema.ObjectId, ref: "Restaurant" }],
   spa: [{ type: mongoose.Schema.ObjectId, ref: "Spa" }],
-  chefs:[{ type: mongoose.Schema.ObjectId, ref: "Chef" }],
-  laundry: [{type: mongoose.Schema.ObjectId, ref: "Laundry"}]
+  chefs: [{ type: mongoose.Schema.ObjectId, ref: "Chef" }],
+  laundry: [{ type: mongoose.Schema.ObjectId, ref: "Laundry" }],
 });
 
 const Hotel = mongoose.model("Hotel", HotelSchema);
