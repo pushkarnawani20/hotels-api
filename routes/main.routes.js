@@ -1,7 +1,11 @@
 const express = require("express");
-const { authController, hotelsController } = require("../controllers");
+const {
+  authController,
+  hotelsController,
+  orderController,
+} = require("../controllers");
 const { signInValidator, signUpValidator } = require("../utils/validator");
-
+const { authMiddleWare } = require("../utils/middleware/auth");
 const router = express.Router();
 
 /**
@@ -36,6 +40,14 @@ router.route("/hotels/search").get(hotelsController.searchHotels);
 
 router.route("/hotels/by/:propCode").get(hotelsController.getHotelsById);
 
-// router.route("/api/users?userId").get(userCtrl.userByID);
+/**
+ * @method - post
+ * @endpoint - /api/hotels/authCheckout
+ * @description - make order
+ */
+
+router
+  .route("/hotels/authCheckout")
+  .post(authMiddleWare, orderController.makeAuthOrder);
 
 module.exports = router;
