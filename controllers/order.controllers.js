@@ -1,18 +1,10 @@
-const nodeMailer = require("nodemailer");
 const Hotel = require("../model/hotels.model");
 const OrderModel = require("../model/order.model");
 const User = require("../model/users.model");
-var table = require("../utils/transformer/mailTable");
-
-const transporter = nodeMailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: "hotelathome123@gmail.com",
-    pass: "hotel0012",
-  },
-});
+const {
+  transporter,
+  returnMailBody,
+} = require("../utils/middleware/authMailer");
 
 const makeAuthOrder = async (req, res) => {
   const inputObj = req.body;
@@ -26,46 +18,42 @@ const makeAuthOrder = async (req, res) => {
     if (hotels) {
       const user = await User.findOne({ id: inputObj.user.id });
 
-      const mailBody = `
-          Dear ${user.firstName},
-
-          Thank you for choosing ${
-            inputObj.serviceName
-          }. Our continued commitment lies in the
-          complete satisfaction of each and every product we sell.
-
-          Your Order details are:
-          ${table.htmlTable(inputObj.items)}
-
-          total amount is : ${inputObj.amount}
-
-          Our success lies in our prompt, professional and personal attention we strive to give.
-          Should you have any suggestions that would improve our business, please feel free to contact us.
-
-          Sincerely
-          ${hotels.hotelName}
-        `;
-      const mailOptions = {
+      const mailBody = returnMailBody({
+        userName: user.firstName,
+        userEmail: user.email,
+        inputObj: inputObj,
+        hotelName: hotels.hotelName,
+      });
+      const info = await transporter.sendMail({
         to: user.email,
         subject: `your ${inputObj.serviceName} order booking successfully`,
-        body: mailBody,
-      };
-      console.log(mailOptions);
-      transporter.sendMail(mailOptions, async (error, info) => {
-        if (error) {
-          return res.status(400).json({
-            data: error,
-            msg: info,
-          });
-        } else {
-          await order.save();
-          return res.status(200).json({
-            data: order,
-            result: dataResult,
-            message: "User sucessfully login",
-          });
-        }
+        html: mailBody,
       });
+      if (info) {
+        order
+          .save()
+          .then((result) => {
+            if (result) {
+              res.status(200).json({
+                data: result,
+                message: "order placed successfully",
+              });
+            } else {
+              res.status(400).json({
+                data: [],
+                message: "something wrong in saving data",
+              });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        res.status(400).json({
+          data: [],
+          message: "something wrong in mail",
+        });
+      }
     } else {
       res.status(400).json({
         data: [],

@@ -6,6 +6,7 @@ const initMongo = async () => {
   try {
     await mongoose.connect(mongoDbUri, {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
     mongoose.connection
       .once("open", () => {

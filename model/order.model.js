@@ -17,19 +17,7 @@ const OrderSchema = new mongoose.Schema({
   amount: {
     type: String,
   },
-  items: [
-    {
-      itemName: {
-        type: String,
-      },
-      itemQuantity: {
-        type: String,
-      },
-      itemPrice: {
-        type: String,
-      },
-    },
-  ],
+  items: [],
   user: {
     userID: {
       type: String,
