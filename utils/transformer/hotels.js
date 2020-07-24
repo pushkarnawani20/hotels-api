@@ -6,8 +6,8 @@ const hotelSearchTransformer = (data) => {
       return {
         propCode: hotel.propCode,
         hotelName: hotel.hotelName,
-        hotelLocation: hotel.hotelLocation,
-        hotelImage: hotel.hotelImage,
+        hotelCountry: hotel.hotelCountry,
+        hotelCity: hotel.hotelCity,
       };
     });
   return serachHotels;

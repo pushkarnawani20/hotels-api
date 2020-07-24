@@ -6,7 +6,13 @@ const HotelSchema = new mongoose.Schema({
   propCode: {
     type: String,
   },
-  hotelLocation: {
+  hotelAddress: {
+    type: String,
+  },
+  hotelCountry: {
+    type: String,
+  },
+  hotelCity: {
     type: String,
   },
   hotelDescription: {
@@ -17,6 +23,9 @@ const HotelSchema = new mongoose.Schema({
   },
   openingHours: {
     type: String,
+  },
+  rating: {
+    type: Number,
   },
   restaurants: [{ type: mongoose.Schema.ObjectId, ref: "Restaurant" }],
   spa: [{ type: mongoose.Schema.ObjectId, ref: "Spa" }],
