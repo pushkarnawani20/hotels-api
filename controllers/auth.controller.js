@@ -42,7 +42,6 @@ const signUp = async (req, res) => {
   }
 };
 
-
 const signIn = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -69,7 +68,10 @@ const signIn = async (req, res) => {
       res.status(200).json({
         fullName: user.firstName + user.lastName,
         email,
+        id: user.id,
         token,
+        phoneNumber: user.phoneNumber,
+        address: user.address,
         message: "User sucessfully login",
       });
     });
