@@ -18,9 +18,7 @@ const HotelSchema = new mongoose.Schema({
   hotelDescription: {
     type: String,
   },
-  hotelImage: {
-    type: String,
-  },
+  hotelImage: [],
   openingHours: {
     type: String,
   },
