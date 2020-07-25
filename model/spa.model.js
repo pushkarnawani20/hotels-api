@@ -26,6 +26,9 @@ const SpaSchema = new mongoose.Schema({
   totalTime: {
     type: String,
   },
+  timeSlot: {
+    type: String,
+  },
   benefits: [],
   includes: [],
   image: {
