@@ -50,14 +50,14 @@ const signIn = async (req, res) => {
     });
     if (!user)
       return res.status(400).json({
-        data: null,
+        data: [{ feild: "invalid-user", message: "User Not Exist" }],
         message: "User Not Exist",
       });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res.status(400).json({
-        data: [{ feild: "password", message: "Incorrect Password" }],
+        data: [{ feild: "username", message: "Incorrect Password" }],
         message: "Incorrect Password !",
       });
 
