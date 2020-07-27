@@ -4,26 +4,20 @@ const EventSchema = new Mongoose.Schema({
     date: {
         type: Date,
         default: Date.now(),
-      },
-      propCode: {
+    },
+    propCode: {
         type: String,
-      },
-      serviceName: {
+    },
+    serviceName: {
         type: String,
-      },
-      serviceType: {
+    },
+    serviceType: {
         type: String,
-      },
+    },
     eventDate: {
         type: Date
     },
-    eventLocation:{
-        type: String
-    },
     eventTime: {
-        type: String
-    },
-    eventType : {
         type: String
     },
     numAdults: {

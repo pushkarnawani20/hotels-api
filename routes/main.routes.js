@@ -2,8 +2,7 @@ const express = require("express");
 const {
   authController,
   hotelsController,
-  orderController,
-  eventServiceController
+  orderController
 } = require("../controllers");
 const { signInValidator, signUpValidator } = require("../utils/validator");
 const { authMiddleWare } = require("../utils/middleware/auth");
@@ -59,6 +58,6 @@ router
 
 router
 .route("/hotels/eventBook")
-.post(eventServiceController.eventServiceBook);
+.post(orderController.withoutAuthServiceRequest);
 
 module.exports = router;
