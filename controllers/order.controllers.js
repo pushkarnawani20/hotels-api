@@ -1,9 +1,11 @@
 const Hotel = require("../model/hotels.model");
 const OrderModel = require("../model/order.model");
 const User = require("../model/users.model");
+const EventsModel = require('../model/events.model');
 const {
   transporter,
   returnMailBody,
+  returnRequestMailBody
 } = require("../utils/middleware/authMailer");
 
 const makeAuthOrder = async (req, res) => {
@@ -68,5 +70,47 @@ const makeAuthOrder = async (req, res) => {
     });
   }
 };
+const withoutAuthServiceRequest = async (req, res) => {
+  const input = req.body;
+  try{
+      const hotelData = await Hotel.findOne({
+          propCode: input.propCode
+      });
+  
+      if(hotelData) {
+          const mailBody = returnRequestMailBody({
+              userName: input.user.name,
+              userEmail: input.user.email,
+              inputObj: input,
+              hotelName: hotelData.hotelName,
+            });
+            const info = await transporter.sendMail({
+              to: input.user.email,
+              subject: `We have received your request for ${input.serviceName} service.`,
+              html: mailBody,
+            });
+          const bookQuery = new EventsModel(
+              {...input}
+          );
+          if(info){
+              await bookQuery.save();
+              res.status(200).json({
+                  data:bookQuery,
+                  msg: 'Event query submitted successfully'
+              });
+          }
+      } else {
+          res.status(200).json({
+              data:null,
+              msg: 'Hotel does not exist'
+          });
+      }
+  } catch(err){
+      return res.status(500).json({
+          data: null,
+          message: "Internal server error !" + err,
+        });
+  }
+};
 
-module.exports = { makeAuthOrder };
+module.exports = { makeAuthOrder, withoutAuthServiceRequest };
