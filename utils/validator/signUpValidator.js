@@ -45,6 +45,11 @@ const validateSignUpUser = [
     .not()
     .isEmpty()
     .withMessage("address can not be empty!"),
+  check("pinCode")
+    .trim()
+    .not()
+    .isEmpty()
+    .withMessage("pinCode can not be empty!"),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

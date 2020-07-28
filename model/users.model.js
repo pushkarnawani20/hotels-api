@@ -31,6 +31,11 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
+  pinCode: {
+    type: Number,
+    trim: true,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),

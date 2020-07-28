@@ -29,9 +29,13 @@ const signUp = async (req, res) => {
         data: {
           fullName: userInput.firstName + userInput.lastName,
           email: userInput.email,
+          id: user.id,
           token,
-          message: "User sucessfully register",
+          phoneNumber: userInput.phoneNumber,
+          address: userInput.address,
+          pinCode: userInput.pinCode,
         },
+        message: "User sucessfully register",
       });
     });
   } catch (err) {
@@ -72,7 +76,7 @@ const signIn = async (req, res) => {
         token,
         phoneNumber: user.phoneNumber,
         address: user.address,
-        message: "User sucessfully login",
+        pinCode: user.pinCode,
       });
     });
   } catch (e) {
