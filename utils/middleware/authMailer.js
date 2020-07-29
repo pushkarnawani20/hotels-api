@@ -39,13 +39,19 @@ const returnRequestMailBody = (mailData) => {
   const { userName, inputObj, hotelName } = mailData;
   const mailBody = `
   <div style="color: #343434; font-size:16px; font-family: Calibri, sans-serif;">
-  <p style="font-size:20px"><b>Hello ${userName}</p>
+  <p style="font-size:18px"><b>Hello ${userName}</p>
   <p style="font-size:14px;">Thank you for your request to book our <b>${
     inputObj.serviceName
-  } service</b>
-  You have requested the event to be arranged on ${inputObj.eventDate}.<br>
-  Our team will reach out to you within 48 hours to discuss your event further!<br>
+  } service.</b>
   <br>
+  You have requested the event to be arranged on ${inputObj.eventDate}.
+  <br>
+  <br>
+  Our team will reach out to you within <b>48 hours</b> to discuss your event further!
+  <br>
+  <br>
+  <br>
+  Due to Covid-19 pandemic situation, we are continuing to keep our Hotels closed for safety but striving to provide our exclusive services to you at your doorstep.<br>
   Our continued commitment lies in the impeccable delivery of each and every service we offer with customer satisfaction as our top priority.<br>
   <br>
   <br>
