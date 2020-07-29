@@ -40,9 +40,7 @@ const returnRequestMailBody = (mailData) => {
   const mailBody = `
   <div style="color: #343434; font-size:16px; font-family: Calibri, sans-serif;">
   <p style="font-size:18px"><b>Hello ${userName}</p>
-  <p style="font-size:14px;">Thank you for your request to book our <b>${
-    inputObj.serviceName
-  } service.</b>
+  <p style="font-size:14px;">Thank you for your request to book our <b>${inputObj.serviceName} service.</b>
   <br>
   You have requested the event to be arranged on ${inputObj.eventDate}.
   <br>
