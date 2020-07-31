@@ -5,7 +5,7 @@ const ChefSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  about: {
+  description: {
     type: String,
   },
   rating: {
