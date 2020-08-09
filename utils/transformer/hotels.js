@@ -8,6 +8,9 @@ const hotelSearchTransformer = (data) => {
         hotelName: hotel.hotelName,
         hotelCountry: hotel.hotelCountry,
         hotelCity: hotel.hotelCity,
+        hotelImage: hotel.hotelImage,
+        rating: hotel.rating,
+        openingHours: hotel.openingHours,
       };
     });
   return serachHotels;
