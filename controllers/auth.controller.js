@@ -27,7 +27,7 @@ const signUp = async (req, res) => {
       if (err) throw err;
       res.status(200).json({
         data: {
-          fullName: userInput.firstName + userInput.lastName,
+          fullName: userInput.firstName + " " + userInput.lastName,
           email: userInput.email,
           id: user.id,
           token,
@@ -70,7 +70,7 @@ const signIn = async (req, res) => {
     jwt.sign(payload, config.jwtToken, { expiresIn: 3600 }, (err, token) => {
       if (err) throw err;
       res.status(200).json({
-        fullName: user.firstName + user.lastName,
+        fullName: user.firstName + " " + user.lastName,
         email,
         id: user.id,
         token,
