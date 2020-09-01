@@ -4,8 +4,8 @@ const table = require("../transformer/tables");
 
 const transporter = nodeMailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false,
   auth: {
     user: config.mailUser,
     pass: config.mailPassword,
