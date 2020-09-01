@@ -131,7 +131,6 @@ const getHotelsById = async (req, res) => {
 };
 
 const searchHotels = async (req, res) => {
-  console.log("hit me");
   try {
     let hotels = await Hotel.find();
     if (hotels) {
