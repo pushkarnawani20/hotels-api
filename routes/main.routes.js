@@ -2,7 +2,7 @@ const express = require("express");
 const {
   authController,
   hotelsController,
-  orderController
+  orderController,
 } = require("../controllers");
 const { signInValidator, signUpValidator } = require("../utils/validator");
 const { authMiddleWare } = require("../utils/middleware/auth");
@@ -50,14 +50,16 @@ router
   .route("/hotels/authCheckout")
   .post(authMiddleWare, orderController.makeAuthOrder);
 
+router.route("/hotels/getOrderDetails").post(orderController.getOrderDetails);
+
 /**
  * @method - post
  * @endpoint - /api/hotels/eventBook
- * @description - make event query 
+ * @description - make event query
  */
 
 router
-.route("/hotels/eventBook")
-.post(orderController.withoutAuthServiceRequest);
+  .route("/hotels/eventBook")
+  .post(orderController.withoutAuthServiceRequest);
 
 module.exports = router;
