@@ -18,10 +18,10 @@ const OrderSchema = new mongoose.Schema({
     type: String,
   },
   items: [],
+  userId: {
+    type: String,
+  },
   user: {
-    userID: {
-      type: String,
-    },
     shippingAddress: {
       type: String,
     },
