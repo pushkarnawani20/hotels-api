@@ -18,7 +18,7 @@ const makeAuthOrder = async (req, res) => {
       propCode: inputObj.propCode,
     });
     if (hotels) {
-      const user = await User.findOne({ _id: inputObj.user.userID });
+      const user = await User.findOne({ _id: inputObj.userId });
       const mailBody = returnMailBody({
         userName: user.firstName,
         userEmail: user.email,
