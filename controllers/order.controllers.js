@@ -18,7 +18,7 @@ const makeAuthOrder = async (req, res) => {
       propCode: inputObj.propCode,
     });
     if (hotels) {
-      const user = await User.findOne({ _id: inputObj.user.id });
+      const user = await User.findOne({ _id: inputObj.user.userID });
       const mailBody = returnMailBody({
         userName: user.firstName,
         userEmail: user.email,
@@ -30,7 +30,7 @@ const makeAuthOrder = async (req, res) => {
         subject: `your ${inputObj.serviceName} order booking successfully`,
         html: mailBody,
       });
-      
+
       if (info) {
         order
           .save()
@@ -70,6 +70,7 @@ const makeAuthOrder = async (req, res) => {
     });
   }
 };
+
 const withoutAuthServiceRequest = async (req, res) => {
   const input = req.body;
   try {
@@ -111,4 +112,34 @@ const withoutAuthServiceRequest = async (req, res) => {
   }
 };
 
-module.exports = { makeAuthOrder, withoutAuthServiceRequest };
+const getOrderDetails = async (req, res) => {
+  const input = req.body;
+  try {
+    const user = await User.findOne({ _id: input.userId });
+    if (!user)
+      return res.status(400).json({
+        data: [{ feild: "email", message: "User Not Exist" }],
+        message: "User Not Exist",
+      });
+    let order = await OrderModel.findOne({
+      userId: input.userId,
+    });
+    if (order) {
+      return res.status(200).json({
+        data: order,
+      });
+    } else {
+      return res.status(400).json({
+        data: null,
+        message: "Order Not Exist",
+      });
+    }
+  } catch (err) {
+    return res.status(500).json({
+      data: null,
+      message: "Internal server error !" + err,
+    });
+  }
+};
+
+module.exports = { makeAuthOrder, getOrderDetails, withoutAuthServiceRequest };
