@@ -121,7 +121,7 @@ const getOrderDetails = async (req, res) => {
         data: [{ feild: "email", message: "User Not Exist" }],
         message: "User Not Exist",
       });
-    let order = await OrderModel.findOne({
+    let order = await OrderModel.find({
       userId: input.userId,
     });
     if (order) {
