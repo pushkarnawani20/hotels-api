@@ -29,7 +29,7 @@ const MealSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-});
+},{bufferCommands:false});
 
 const Meal = mongoose.model("Meal", MealSchema);
 

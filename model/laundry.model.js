@@ -28,7 +28,7 @@ const laundrySchema = new Mongoose.Schema({
   perkg: {
     type: Boolean,
   },
-});
+},{bufferCommands:false});
 
 const Laundry = Mongoose.model("Laundry", laundrySchema);
 

@@ -22,7 +22,7 @@ const ChefSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-});
+},{bufferCommands:false});
 
 const Chef = mongoose.model("Chef", ChefSchema);
 

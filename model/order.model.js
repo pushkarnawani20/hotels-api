@@ -40,7 +40,7 @@ const OrderSchema = new mongoose.Schema({
       },
     },
   },
-});
+},{bufferCommands:false});
 
 const orderModel = mongoose.model("Orders", OrderSchema);
 

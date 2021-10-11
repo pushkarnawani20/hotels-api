@@ -8,14 +8,7 @@ const initMongo = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    mongoose.connection
-      .once("open", () => {
-        console.log("MongoDB connection established successfully");
-      })
-      .on("error", (error) => {
-        console.error("error", error);
-        throw error;
-      });
+    
   } catch (e) {
     console.log(e);
     throw e;

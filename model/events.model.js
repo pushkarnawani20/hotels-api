@@ -43,7 +43,7 @@ const EventSchema = new Mongoose.Schema({
       type: String,
     },
   },
-});
+},{bufferCommands:false});
 
 const EventModel = new Mongoose.model("Events", EventSchema);
 module.exports = EventModel;

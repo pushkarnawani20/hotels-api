@@ -4,7 +4,7 @@ const config = {
   jwtToken: `mySecreatKey`,
   appName: "INOVATION",
   mongoUser: "Authmember",
-  mongoPassword: "qHKqTKYRdYnpxUyX",
+  mongoPassword: "9qJNQwC3uW50OCzY",
   port: process.env.PORT || 5000,
   mailUser: "hotelathome123@gmail.com",
   mailPassword: "hotel0012",

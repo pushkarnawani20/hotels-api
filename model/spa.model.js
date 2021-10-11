@@ -31,7 +31,7 @@ const SpaSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-});
+},{bufferCommands:false});
 
 const Spa = mongoose.model("Spa", SpaSchema);
 
